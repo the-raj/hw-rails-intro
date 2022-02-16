@@ -6,10 +6,18 @@
 <table class="table table-striped col-md-12" id="movies">
   <thead>
     <tr>
-      <!--<th>Movie Title</th>-->
-      <th><%= link_to "Movie Title", { :sort => "title" }, id: "title_header" %></th>
+      <% if params[:sort] == "title" %>
+        <th><%= link_to "Movie Title", { :sort => "title" }, id: "title_header", class: "hilite bg-warning"%></th>
+      <% else %>
+        <th><%= link_to "Movie Title", { :sort => "title" }, id: "title_header"%></th>
+      <% end %>
       <th>Rating</th>
-      <th><%= link_to "Release Date", { :sort => "release_date" }, id: "release_date_header" %></th>
+      <% if params[:sort] == "release_date" %>
+        <th><%= link_to "Release Date", { :sort => "release_date" }, id: "release_date_header", class: "hilite bg-warning" %></th>
+      <% else %>
+        <th><%= link_to "Release Date", { :sort => "release_date" }, id: "release_date_header" %></th>
+      <% end %>
+      
       <th>More Info</th>
     </tr>
   </thead>
