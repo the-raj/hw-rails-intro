@@ -7,6 +7,10 @@ class MoviesController < ApplicationController
     end
   
     def index
+      @all_ratings = Movie.all_ratings
+      p @all_ratings
+      p params[:ratings]
+      # @ratings_to_show = hash_ratings
       @movies = Movie.order(params[:sort])
     end
   
@@ -43,5 +47,10 @@ class MoviesController < ApplicationController
     # This helps make clear which methods respond to requests, and which ones do not.
     def movie_params
       params.require(:movie).permit(:title, :rating, :description, :release_date)
+    end
+    
+    def hash_ratings
+      p params[:ratings]
+      Hash[params[:ratings]]
     end
   end

@@ -370,3 +370,300 @@ Processing by MoviesController#index as HTML
   Rendered movies/index.html.erb within layouts/application (2.7ms)
   Rendered layouts/_flash.erb (0.0ms)
 Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 165.91.13.148 at 2022-02-16 23:32:30 +0000
+Cannot render console from 165.91.13.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#index as HTML
+  Rendered movies/index.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/home/ec2-user/environment/hw-rails-intro/app/views/movies/index.html.erb:15: syntax error, unexpected ')', expecting =>
+...s: "hilite bg-warning" } : { });@output_buffer.safe_append='...
+...                              ^
+/home/ec2-user/environment/hw-rails-intro/app/views/movies/index.html.erb:39: syntax error, unexpected ensure, expecting ')'
+          ensure
+          ^~~~~~
+/home/ec2-user/environment/hw-rails-intro/app/views/movies/index.html.erb:41: syntax error, unexpected end, expecting ')'
+          end
+          ^~~):
+  app/views/movies/index.html.erb:15: syntax error, unexpected ')', expecting =>
+  app/views/movies/index.html.erb:39: syntax error, unexpected ensure, expecting ')'
+  app/views/movies/index.html.erb:41: syntax error, unexpected end, expecting ')'
+
+
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.3ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (37.9ms)
+
+
+Started GET "/" for 165.91.13.148 at 2022-02-16 23:34:01 +0000
+Cannot render console from 165.91.13.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (7.1ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 192ms (Views: 191.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/?sort=title" for 165.91.13.148 at 2022-02-16 23:34:04 +0000
+Cannot render console from 165.91.13.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"title"}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies"  ORDER BY title[0m
+  Rendered movies/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/?sort=title" for 165.91.13.148 at 2022-02-16 23:45:27 +0000
+Cannot render console from 165.91.13.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"title"}
+  Rendered movies/index.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    4: <%#  Part 2: Start here... %>
+    5: <%= form_tag movies_path, method: :get, id: "ratings_form" do %>
+    6:   Include:
+    7:   <% @all_ratings.each do |rating| %>
+    8:     <div class="form-check form-check-inline">
+    9:         <%= label_tag "ratings[#{rating}]", rating, class: "form-check-label" %>
+   10:         <%= check_box_tag "ratings[#{rating}]", "1", @ratings_to_show.include?(rating), class: "form-check-input" %>
+  app/views/movies/index.html.erb:7:in `block in _app_views_movies_index_html_erb___2107134872852575487_69981339678720'
+  app/views/movies/index.html.erb:5:in `_app_views_movies_index_html_erb___2107134872852575487_69981339678720'
+
+
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.2ms)
+
+
+Started GET "/?sort=title" for 165.91.13.148 at 2022-02-16 23:52:51 +0000
+Cannot render console from 165.91.13.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"title"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `all_ratings' for #<Class:0x00007f4b99c1fbb0>):
+  app/controllers/movies_controller.rb:10:in `index'
+
+
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.6ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (17.7ms)
+
+
+Started GET "/?sort=title" for 165.91.13.148 at 2022-02-16 23:53:18 +0000
+Cannot render console from 165.91.13.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"title"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `all_ratings' for #<Class:0x00007f4b98c9a550>):
+  app/controllers/movies_controller.rb:10:in `index'
+
+
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.6ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (11.5ms)
+
+
+Started GET "/?sort=title" for 165.91.13.148 at 2022-02-16 23:53:51 +0000
+Cannot render console from 165.91.13.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"title"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `all_ratings' for #<Class:0x00007f4b99e95188>):
+  app/controllers/movies_controller.rb:10:in `index'
+
+
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.7ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (12.2ms)
+
+
+Started GET "/?sort=title" for 165.91.13.148 at 2022-02-16 23:55:18 +0000
+Cannot render console from 165.91.13.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"title"}
+  [1m[35m (0.1ms)[0m  SELECT DISTINCT "movies"."rating" FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined method `include?' for nil:NilClass):
+     7:   <% @all_ratings.each do |rating| %>
+     8:     <div class="form-check form-check-inline">
+     9:         <%= label_tag "ratings_#{rating}", rating, class: "form-check-label" %>
+    10:         <%= check_box_tag "ratings_#{rating}", "1", @ratings_to_show.include?(rating), class: "form-check-input" %>
+    11:     </div>
+    12:   <% end %>
+    13:   <%= submit_tag "Refresh", id: "ratings_submit", class: "btn btn-primary" %>
+  app/views/movies/index.html.erb:10:in `block (2 levels) in _app_views_movies_index_html_erb___2107134872852575487_69981337077460'
+  app/views/movies/index.html.erb:7:in `each'
+  app/views/movies/index.html.erb:7:in `block in _app_views_movies_index_html_erb___2107134872852575487_69981337077460'
+  app/views/movies/index.html.erb:5:in `_app_views_movies_index_html_erb___2107134872852575487_69981337077460'
+
+
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.6ms)
+
+
+Started GET "/?sort=title" for 165.91.13.148 at 2022-02-16 23:56:03 +0000
+Cannot render console from 165.91.13.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"title"}
+  [1m[36m (0.1ms)[0m  [1mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `include?' for nil:NilClass):
+     7:   <% @all_ratings.each do |rating| %>
+     8:     <div class="form-check form-check-inline">
+     9:         <%= label_tag "ratings_#{rating}", rating, class: "form-check-label" %>
+    10:         <%= check_box_tag "ratings_#{rating}", "1", @ratings_to_show.include?(rating), class: "form-check-input" %>
+    11:     </div>
+    12:   <% end %>
+    13:   <%= submit_tag "Refresh", id: "ratings_submit", class: "btn btn-primary" %>
+  app/views/movies/index.html.erb:10:in `block (2 levels) in _app_views_movies_index_html_erb___2107134872852575487_69981337077460'
+  app/views/movies/index.html.erb:7:in `each'
+  app/views/movies/index.html.erb:7:in `block in _app_views_movies_index_html_erb___2107134872852575487_69981337077460'
+  app/views/movies/index.html.erb:5:in `_app_views_movies_index_html_erb___2107134872852575487_69981337077460'
+
+
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.1ms)
+
+
+Started GET "/?sort=title" for 165.91.13.148 at 2022-02-16 23:56:18 +0000
+Cannot render console from 165.91.13.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"title"}
+  [1m[35m (0.1ms)[0m  SELECT DISTINCT "movies"."rating" FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `include?' for nil:NilClass):
+     7:   <% @all_ratings.each do |rating| %>
+     8:     <div class="form-check form-check-inline">
+     9:         <%= label_tag "ratings_#{rating}", rating, class: "form-check-label" %>
+    10:         <%= check_box_tag "ratings_#{rating}", "1", @ratings_to_show.include?(rating), class: "form-check-input" %>
+    11:     </div>
+    12:   <% end %>
+    13:   <%= submit_tag "Refresh", id: "ratings_submit", class: "btn btn-primary" %>
+  app/views/movies/index.html.erb:10:in `block (2 levels) in _app_views_movies_index_html_erb___2107134872852575487_69981337077460'
+  app/views/movies/index.html.erb:7:in `each'
+  app/views/movies/index.html.erb:7:in `block in _app_views_movies_index_html_erb___2107134872852575487_69981337077460'
+  app/views/movies/index.html.erb:5:in `_app_views_movies_index_html_erb___2107134872852575487_69981337077460'
+
+
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.3ms)
+
+
+Started GET "/?sort=title" for 165.91.13.148 at 2022-02-17 00:07:07 +0000
+Cannot render console from 165.91.13.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"title"}
+  [1m[36m (0.1ms)[0m  [1mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms)
+
+ArgumentError (odd number of arguments for Hash):
+  app/controllers/movies_controller.rb:52:in `[]'
+  app/controllers/movies_controller.rb:52:in `hash_ratings'
+  app/controllers/movies_controller.rb:12:in `index'
+
+
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.7ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (12.3ms)
+
+
+Started GET "/?sort=title" for 165.91.13.148 at 2022-02-17 00:07:23 +0000
+Cannot render console from 165.91.13.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"title"}
+  [1m[35m (0.1ms)[0m  SELECT DISTINCT "movies"."rating" FROM "movies"
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms)
+
+ArgumentError (odd number of arguments for Hash):
+  app/controllers/movies_controller.rb:53:in `[]'
+  app/controllers/movies_controller.rb:53:in `hash_ratings'
+  app/controllers/movies_controller.rb:12:in `index'
+
+
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.6ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (12.0ms)
+
+
+Started GET "/?sort=title" for 165.91.13.148 at 2022-02-17 00:07:37 +0000
+Cannot render console from 165.91.13.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"title"}
+  [1m[36m (0.1ms)[0m  [1mSELECT DISTINCT "movies"."rating" FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `include?' for nil:NilClass):
+     7:   <% @all_ratings.each do |rating| %>
+     8:     <div class="form-check form-check-inline">
+     9:         <%= label_tag "ratings_#{rating}", rating, class: "form-check-label" %>
+    10:         <%= check_box_tag "ratings_#{rating}", "1", @ratings_to_show.include?(rating), class: "form-check-input" %>
+    11:     </div>
+    12:   <% end %>
+    13:   <%= submit_tag "Refresh", id: "ratings_submit", class: "btn btn-primary" %>
+  app/views/movies/index.html.erb:10:in `block (2 levels) in _app_views_movies_index_html_erb___2107134872852575487_69981337077460'
+  app/views/movies/index.html.erb:7:in `each'
+  app/views/movies/index.html.erb:7:in `block in _app_views_movies_index_html_erb___2107134872852575487_69981337077460'
+  app/views/movies/index.html.erb:5:in `_app_views_movies_index_html_erb___2107134872852575487_69981337077460'
+
+
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.7ms)
+
+
+Started GET "/?sort=title" for 165.91.13.148 at 2022-02-17 00:07:55 +0000
+Cannot render console from 165.91.13.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"title"}
+  [1m[35m (0.1ms)[0m  SELECT DISTINCT "movies"."rating" FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `include?' for nil:NilClass):
+     7:   <% @all_ratings.each do |rating| %>
+     8:     <div class="form-check form-check-inline">
+     9:         <%= label_tag "ratings_#{rating}", rating, class: "form-check-label" %>
+    10:         <%= check_box_tag "ratings_#{rating}", "1", @ratings_to_show.include?(rating), class: "form-check-input" %>
+    11:     </div>
+    12:   <% end %>
+    13:   <%= submit_tag "Refresh", id: "ratings_submit", class: "btn btn-primary" %>
+  app/views/movies/index.html.erb:10:in `block (2 levels) in _app_views_movies_index_html_erb___2107134872852575487_69981337077460'
+  app/views/movies/index.html.erb:7:in `each'
+  app/views/movies/index.html.erb:7:in `block in _app_views_movies_index_html_erb___2107134872852575487_69981337077460'
+  app/views/movies/index.html.erb:5:in `_app_views_movies_index_html_erb___2107134872852575487_69981337077460'
+
+
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.1ms)
