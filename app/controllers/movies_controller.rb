@@ -8,10 +8,20 @@ class MoviesController < ApplicationController
   
     def index
       @all_ratings = Movie.all_ratings
-      p @all_ratings
-      p params[:ratings]
-      # @ratings_to_show = hash_ratings
-      @movies = Movie.order(params[:sort])
+      
+      @ratings_to_show = params[:ratings]
+      if @ratings_to_show.nil?
+        @ratings_to_show = @all_ratings
+        @all_ratings = Hash[@all_ratings.collect {|r| [r, true]}]
+      else
+        @all_ratings = Hash[@all_ratings.collect {|r| [r, false]}]
+        @ratings_to_show = @ratings_to_show.keys
+        @ratings_to_show.each do |key|
+          @all_ratings[key] = true
+        end
+      end
+      
+      @movies = Movie.with_ratings(@ratings_to_show, params[:sort])
     end
   
     def new
@@ -50,7 +60,12 @@ class MoviesController < ApplicationController
     end
     
     def hash_ratings
-      p params[:ratings]
-      Hash[params[:ratings]]
+      ratings_arr = params[:ratings]
+      if ratings_arr.nil?
+        ratings_arr = @all_ratings
+        Hash[]
+      else
+        Hash[ratings_arr.keys.collect {|r| [r, '1']}]
+      end
     end
-  end
+end
