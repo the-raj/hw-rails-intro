@@ -9,6 +9,18 @@ class MoviesController < ApplicationController
     def index
       @all_ratings = Movie.all_ratings
       
+      if (params[:sort].nil? && !session[:sort].nil?) ||
+         (params[:ratings].nil? && !session[:ratings].nil?)
+        flash.keep
+        if params[:sort].nil? && !params[:ratings].nil?
+          redirect_to movies_path(:sort => session[:sort], :ratings => params[:ratings])
+        elsif params[:ratings].nil? && !params[:sort].nil?
+          redirect_to movies_path(:sort => params[:sort], :ratings => session[:ratings])
+        else
+          redirect_to movies_path(:sort => session[:sort], :ratings => session[:ratings])
+        end
+      end
+      
       @ratings_to_show = params[:ratings]
       if @ratings_to_show.nil?
         @ratings_to_show = @all_ratings
@@ -22,6 +34,8 @@ class MoviesController < ApplicationController
       end
       
       @movies = Movie.with_ratings(@ratings_to_show, params[:sort])
+      session[:sort] = params[:sort]
+      session[:ratings] = params[:ratings]
     end
   
     def new
@@ -57,15 +71,5 @@ class MoviesController < ApplicationController
     # This helps make clear which methods respond to requests, and which ones do not.
     def movie_params
       params.require(:movie).permit(:title, :rating, :description, :release_date)
-    end
-    
-    def hash_ratings
-      ratings_arr = params[:ratings]
-      if ratings_arr.nil?
-        ratings_arr = @all_ratings
-        Hash[]
-      else
-        Hash[ratings_arr.keys.collect {|r| [r, '1']}]
-      end
     end
 end
